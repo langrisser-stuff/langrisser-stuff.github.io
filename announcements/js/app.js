@@ -6,6 +6,7 @@ async function main () {
     let result;
     let lines = [];
 
+    hideLoading();
     text = text.replace(/<color=#42241C00>口口+<\/color>/g, '');
     while ((result = reText.exec(text)) !== null) {
         let size = result[0].match(reSize);
@@ -21,7 +22,7 @@ function print (lines) {
     for (line of lines) {
         const div = document.createElement('div');
         div.innerText = line.text;
-        div.style.fontSize = line.size
+        div.style.fontSize = line.size;
         document.getElementsByTagName('div')[0].appendChild(div);
     }
 }
